@@ -256,7 +256,7 @@ const Card = ({ image, title, username }) => {
 
       {/* Share Modal */}
       {showModal && (
-        <div className="modal-overlay">
+        <div className=" fixed inset-0 bg-white bg-opacity-30 flex items-center justify-center z-50">
           <div className="modal-content">
             <button className="close-btn" onClick={() => setShowModal(false)}>
               <FaTimes />
