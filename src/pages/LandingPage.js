@@ -79,10 +79,16 @@ const LandingPage = () => {
 
   return (
     <div>
-      <Navbar onLoginClick={() => setShowAuth(true)} />
+      <>
+        <Navbar
+          onLoginClick={() => setShowAuth(true)}
+          setShowAuth={setShowAuth}
+        />
+        {showAuth && <AuthModal onClose={() => setShowAuth(false)} />}
+      </>
 
       <div
-        className="hero-section flex items-start justify-start text-white h-[87vh] bg-cover bg-center px-6 md:px-36 relative"
+        className="hero-section  flex items-start justify-start text-white h-[87vh] bg-cover bg-center px-6 md:px-36 relative"
         style={{
           backgroundImage: ` linear-gradient(to bottom, rgba(0,0,0,0) 60%, #000 120%), url('/images/back_image.jpg')`,
         }}
@@ -97,7 +103,7 @@ const LandingPage = () => {
             <span className="block md:block">today?</span>
           </h1>
           <ProtectedButton
-            onClick={() => alert("Protected Action")}
+            to="/chatpage"
             onAuthRequired={() => setShowAuth(true)}
           >
             <div className="ml-24 mt-4">

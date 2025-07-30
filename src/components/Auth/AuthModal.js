@@ -43,7 +43,6 @@
 
 // export default AuthModal;
 
-
 //2 proper working
 
 // import React, { useState } from "react";
@@ -131,8 +130,6 @@
 // };
 
 // export default AuthModal;
-
-
 
 //3 working with animation
 
@@ -245,6 +242,3 @@ const AuthModal = ({ onClose }) => {
 };
 
 export default AuthModal;
-
-
-

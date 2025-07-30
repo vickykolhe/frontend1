@@ -70,7 +70,7 @@ const allGames = [
 
 const ITEMS_PER_PAGE = 4;
 
-export default function Latestgames() {
+const Latestgames = () => {
   const [currentPage, setCurrentPage] = useState(1);
 
   const totalPages = Math.ceil(allGames.length / ITEMS_PER_PAGE);
@@ -132,4 +132,5 @@ export default function Latestgames() {
       <Footer />
     </>
   );
-}
+};
+export default Latestgames;

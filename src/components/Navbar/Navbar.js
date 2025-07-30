@@ -12,7 +12,6 @@
 //     <nav className="navbar">
 //       <h1 className="text-logocolor font-jersey text-custom ml-24">KHELIO</h1>
 
-
 //       <div>
 //         {currentUser ? (
 //           <>
@@ -38,8 +37,9 @@ import { useAuth } from "../../context/AuthContext";
 import CustomButton from "../buttons/CustomButton";
 import CustomButtonReverse from "../buttons/CustomButtonReverse";
 import { FaUserCircle } from "react-icons/fa";
+import ProtectedButton from "../buttons/ProtectedButton";
 
-const Navbar = ({ onLoginClick }) => {
+const Navbar = ({ setShowAuth, onLoginClick }) => {
   const { currentUser } = useAuth();
 
   return (
@@ -58,12 +58,13 @@ const Navbar = ({ onLoginClick }) => {
           </Link>
         </li>
         <li>
-          <Link
-            to="/create"
+          <ProtectedButton
+            to="/ChatPage"
+            onAuthRequired={() => setShowAuth(true)}
             className=" font-normaltext text-normalcolor text-navlinks hover:text-logocolor transition"
           >
             CREATE
-          </Link>
+          </ProtectedButton>
         </li>
         <li>
           <Link
@@ -79,19 +80,25 @@ const Navbar = ({ onLoginClick }) => {
       <div className="flex items-center gap-3 mr-2 mt-2">
         {currentUser ? (
           <>
-             <Link to="/profile">
-      <FaUserCircle className="text-5xl mr-6 ml-20 mb-1 text-white hover:text-logocolor transition-all hover:scale-110 hover:bg" />
-    </Link>
+            <Link to="/profile">
+              <FaUserCircle className="text-5xl mr-6 ml-20 mb-1 text-white hover:text-logocolor transition-all hover:scale-110 hover:bg" />
+            </Link>
           </>
         ) : (
           <>
-            <button onClick={onLoginClick} className="px-1 py-2 rounded-lg transition-all duration-300 hover:scale-110 hover:bg">
+            <button
+              onClick={onLoginClick}
+              className="px-1 py-2 rounded-lg transition-all duration-300 hover:scale-110 hover:bg"
+            >
               <CustomButton
                 text="Login"
                 textClassName="text-normalcolor font-normaltext text-normallogin p-0.5 pl-2"
               />
             </button>
-            <button onClick={onLoginClick} className="px-1 py-2 rounded-lg transition-all duration-300 hover:scale-110 hover:bg">
+            <button
+              onClick={onLoginClick}
+              className="px-1 py-2 rounded-lg transition-all duration-300 hover:scale-110 hover:bg"
+            >
               <CustomButtonReverse
                 text="SignUp"
                 textClassName="text-normalcolor font-normaltext text-normallogin p-0.5 pl-2"

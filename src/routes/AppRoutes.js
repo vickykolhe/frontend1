@@ -4,6 +4,7 @@ import LandingPage from "../pages/LandingPage";
 import ProfilePage from "../pages/ProfilePage";
 import Populargames from "../pages/Populargames";
 import Latestgames from "../pages/Latestgames";
+import ChatPage from "../pages/ChatPage";
 
 const AppRoutes = () => {
   return (
@@ -12,6 +13,7 @@ const AppRoutes = () => {
       <Route path="/profile" element={<ProfilePage />} />
       <Route path="/populargames" element={<Populargames />} />
       <Route path="/latestgames" element={<Latestgames />} />
+      <Route path="/chatpage" element={<ChatPage />} />
     </Routes>
   );
 };
